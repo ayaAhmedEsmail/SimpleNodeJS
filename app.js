@@ -4,11 +4,9 @@ const mongoose = require('mongoose');
 const app = express();
 const PORT = 3000;
 
-// Connect to MongoDB
-mongoose.connect('mongodb://localhost:27017/yourDatabase', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-}).then(() => console.log('✅ MongoDB Connected'))
+// Connect to MongoDB (without deprecated options)
+mongoose.connect('mongodb://localhost:27017/yourDatabase')
+  .then(() => console.log('✅ MongoDB Connected'))
   .catch(err => console.error('❌ MongoDB Connection Error:', err));
 
 // Define a simple route
